@@ -201,7 +201,7 @@ OpenAndConfSSDPNotifySocket(in_addr_t addr)
 	int s;
 	unsigned char loopchar = 0;
 	int bcast = 1;
-	unsigned char ttl = 2; /* UDA v1.1 says :
+	unsigned char ttl = time_to_live; /* UDA v1.1 says :
 		The TTL for the IP packet SHOULD default to 2 and
 		SHOULD be configurable. */
 	/* TODO: Make TTL be configurable */

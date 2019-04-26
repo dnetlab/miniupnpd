@@ -13,6 +13,9 @@
 #include "miniupnpdtypes.h"
 #include "config.h"
 
+/*time to live*/
+extern unsigned char time_to_live;
+
 /* name of the network interface used to acces internet */
 extern const char * ext_if_name;
 

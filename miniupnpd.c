@@ -1272,6 +1272,9 @@ init(int argc, char * * argv, struct runtime_vars * v)
 			case UPNPMINISSDPDSOCKET:
 				minissdpdsocketpath = ary_options[i].value;
 				break;
+			case UPNPTIMETOLIVE:
+				time_to_live = atoi(ary_options[i].value);
+				break;
 			default:
 				fprintf(stderr, "Unknown option in file %s\n",
 				        optionsfile);
@@ -1546,6 +1549,12 @@ init(int argc, char * * argv, struct runtime_vars * v)
 		case 'f':
 			i++;	/* discarding, the config file is already read */
 			break;
+		case 'l':
+			if(i+1 < argc)
+				time_to_live = atoi(argv[++i]);
+			else
+				fprintf(stderr, "Option -%c takes one argument.\n", argv[i][1]);
+			break;
 		default:
 			fprintf(stderr, "Unknown option: %s\n", argv[i]);
 		}
@@ -1708,6 +1717,7 @@ print_usage:
 #ifdef ENABLE_NFQUEUE
                         "\t\t[-Q queue] [-n name]\n"
 #endif
+			"\t\t[-l time_to_live]\n"
 			"\t\t[-A \"permission rule\"] [-b BOOTID]\n"
 	        "\nNotes:\n\tThere can be one or several listening_ips.\n"
 	        "\tNotify interval is in seconds. Default is 30 seconds.\n"

@@ -12,6 +12,8 @@
 #include "upnpglobalvars.h"
 #include "upnpdescstrings.h"
 
+unsigned char time_to_live = 2;
+
 /* network interface for internet */
 const char * ext_if_name = 0;
 

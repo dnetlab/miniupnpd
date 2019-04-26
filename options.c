@@ -83,7 +83,8 @@ static const struct {
 	{ UPNPLEASEFILE, "lease_file"},
 #endif
 	{ UPNPMINISSDPDSOCKET, "minissdpdsocket"},
-	{ UPNPSECUREMODE, "secure_mode"}
+	{ UPNPSECUREMODE, "secure_mode"},
+	{ UPNPTIMETOLIVE, "time_to_live"}
 };
 
 int

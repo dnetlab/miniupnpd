@@ -65,7 +65,8 @@ enum upnpconfigoptions {
 	UPNPLEASEFILE,			/* lease_file */
 #endif
 	UPNPMINISSDPDSOCKET,	/* minissdpdsocket */
-	UPNPENABLE				/* enable_upnp */
+	UPNPENABLE,				/* enable_upnp */
+	UPNPTIMETOLIVE			/* time_to_live*/
 };
 
 /* readoptionsfile()
