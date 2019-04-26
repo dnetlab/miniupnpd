@@ -38,8 +38,6 @@ endif
 endif
 endif
 
-LIBS +=  /lib/libip4tc.so /lib/libip6tc.so
-
 all:	iptcrdr.o testiptcrdr iptpinhole.o \
         testiptcrdr_peer testiptcrdr_dscp test_nfct_get
 #        testiptpinhole

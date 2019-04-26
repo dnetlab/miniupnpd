@@ -70,7 +70,6 @@ CPPFLAGS += -DIPTABLES_143
 endif
 
 CFLAGS  += $(shell $(PKG_CONFIG) --cflags libiptc)
-LDLIBS  += $(shell $(PKG_CONFIG) --static --libs-only-l libiptc)
 LDFLAGS += $(shell $(PKG_CONFIG) --libs-only-L libiptc)
 LDFLAGS += $(shell $(PKG_CONFIG) --libs-only-other libiptc)
 else
