@@ -1046,6 +1046,7 @@ init(int argc, char * * argv, struct runtime_vars * v)
 	struct lan_addr_s * lan_addr;
 	struct lan_addr_s * lan_addr2;
 
+	v->clean_ruleset_threshold = 0;
 	/* only print usage if -h is used */
 	for(i=1; i<argc; i++)
 	{
