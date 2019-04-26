@@ -122,7 +122,26 @@ sigusr2(int sig)
 {
 	gotusr2 = 1;
 }
+static void
+tomato_helper(void)
+{
+	struct stat st;
+			
+	if (stat(UPNP_DATA_DEL_PATHTILE, &st) == 0)
+	{
+		delete_data_from_file();
+		unlink(UPNP_DATA_DEL_PATHTILE);
+	}
 
+	if (stat(UPNP_DATA_SAVE_PATHFILE, &st) == 0)
+	{
+		write_date_to_file(UPNP_DATA_LIST_PATHFILE);
+		unlink(UPNP_DATA_SAVE_PATHFILE);
+	}
+	return ;
+}
+
+#else
 static void
 tomato_save(const char *fname)
 {
@@ -1676,7 +1695,7 @@ init(int argc, char * * argv, struct runtime_vars * v)
 #endif
 
 #ifdef TOMATO
-	tomato_load();
+	init_upnpd_list_data();
 #endif /* TOMATO */
 
 	return 0;
@@ -2565,7 +2584,8 @@ shutdown:
 	finalize_sendto();
 
 #ifdef TOMATO
-	tomato_save("/etc/upnp/data");
+	write_date_to_file(UPNP_DATA_LIST_PATHFILE);
+	destory_upnpd_list();
 #endif	/* TOMATO */
 	/* close out open sockets */
 	while(upnphttphead.lh_first != NULL)

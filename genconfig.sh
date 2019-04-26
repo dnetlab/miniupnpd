@@ -522,6 +522,8 @@ cat >> ${CONFIGFILE} <<EOF
 #define USE_TIME_AS_BOOTID
 EOF
 
+echo "#define TOMATO 1" >> ${CONFIGFILE}
+
 echo "#endif /* ${CONFIGMACRO} */" >> ${CONFIGFILE}
 
 ${MV} ${CONFIGFILE} ${CONFIGFILE_FINAL}

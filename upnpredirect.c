@@ -231,7 +231,7 @@ int reload_from_lease_file()
 			leaseduration = 0;	/* default value */
 		}
 		rhost = NULL;
-		r = upnp_redirect(rhost, eport, iaddr, iport, proto, desc, leaseduration);
+		r = upnp_redirect(1, rhost, eport, iaddr, iport, proto, desc, leaseduration);
 		if(r == -1) {
 			syslog(LOG_ERR, "Failed to redirect %hu -> %s:%hu protocol %s",
 			       eport, iaddr, iport, proto);
@@ -256,7 +256,7 @@ int reload_from_lease_file()
  *          -3 permission check failed
  */
 int
-upnp_redirect(const char * rhost, unsigned short eport,
+upnp_redirect(unsigned int enable, const char * rhost, unsigned short eport,
               const char * iaddr, unsigned short iport,
               const char * protocol, const char * desc,
               unsigned int leaseduration)
@@ -284,16 +284,26 @@ upnp_redirect(const char * rhost, unsigned short eport,
 	                      0, 0,
 	                      &timestamp, 0, 0);
 	if(r == 0) {
-		/* if existing redirect rule matches redirect request return success
-		 * xbox 360 does not keep track of the port it redirects and will
-		 * redirect another port when receiving ConflictInMappingEntry */
-		if(strcmp(iaddr, iaddr_old)==0 && iport==iport_old) {
-			syslog(LOG_INFO, "ignoring redirect request as it matches existing redirect");
-		} else {
+		if(enable == 1)
+		{
+			/* if existing redirect rule matches redirect request return success
+			* xbox 360 does not keep track of the port it redirects and will
+			* redirect another port when receiving ConflictInMappingEntry */
+			if(strcmp(iaddr, iaddr_old)==0 && iport==iport_old) {
+				syslog(LOG_INFO, "ignoring redirect request as it matches existing redirect");
+			} else {
 
-			syslog(LOG_INFO, "port %hu protocol %s already redirected to %s:%hu",
-				eport, protocol, iaddr_old, iport_old);
-			return -2;
+				syslog(LOG_INFO, "port %hu protocol %s already redirected to %s:%hu",
+					eport, protocol, iaddr_old, iport_old);
+				return -2;
+			}
+		}
+		else
+		{
+#ifdef TOMATO
+			add_and_update_upnpd_list_info(enable, eport, iaddr, iport, protocol, desc, timestamp);
+#endif
+			upnp_delete_redirection(eport, protocol);
 		}
 #ifdef CHECK_PORTINUSE
 	} else if (port_in_use(ext_if_name, eport, proto, iaddr, iport) > 0) {
@@ -305,7 +315,11 @@ upnp_redirect(const char * rhost, unsigned short eport,
 		timestamp = (leaseduration > 0) ? time(NULL) + leaseduration : 0;
 		syslog(LOG_INFO, "redirecting port %hu to %s:%hu protocol %s for: %s",
 			eport, iaddr, iport, protocol, desc);
-		return upnp_redirect_internal(rhost, eport, iaddr, iport, proto,
+#ifdef TOMATO		
+		add_and_update_upnpd_list_info(enable, eport, iaddr, iport, protocol, desc, timestamp);
+#endif
+		if(enable == 1)
+			return upnp_redirect_internal(rhost, eport, iaddr, iport, proto,
 		                              desc, timestamp);
 	}
 

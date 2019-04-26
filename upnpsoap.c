@@ -316,7 +316,9 @@ AddPortMapping(struct upnphttp * h, const char * action)
 	char * leaseduration_str;
 	unsigned int leaseduration;
 	char * r_host;
+	char *newEnabled;
 	unsigned short iport, eport;
+	unsigned int enable;
 
 	struct hostent *hp; /* getbyhostname() */
 	char ** ptr; /* getbyhostname() */
@@ -386,6 +388,7 @@ AddPortMapping(struct upnphttp * h, const char * action)
 	protocol = GetValueFromNameValueList(&data, "NewProtocol");
 	desc = GetValueFromNameValueList(&data, "NewPortMappingDescription");
 	leaseduration_str = GetValueFromNameValueList(&data, "NewLeaseDuration");
+	newEnabled = GetValueFromNameValueList(&data, "NewEnabled");
 
 	if (!int_port || !ext_port || !protocol)
 	{
@@ -396,6 +399,7 @@ AddPortMapping(struct upnphttp * h, const char * action)
 
 	eport = (unsigned short)atoi(ext_port);
 	iport = (unsigned short)atoi(int_port);
+	enable = (unsigned int)atoi(newEnabled);
 
 	leaseduration = leaseduration_str ? atoi(leaseduration_str) : 0;
 #ifdef IGD_V2
@@ -423,7 +427,7 @@ AddPortMapping(struct upnphttp * h, const char * action)
 	PortMappingDescription, PortMappingEnabled and PortMappingLeaseDuration are
 	overwritten.
 	*/
-	r = upnp_redirect(r_host, eport, int_ip, iport, protocol, desc, leaseduration);
+	r = upnp_redirect(enable, r_host, eport, int_ip, iport, protocol, desc, leaseduration);
 
 	ClearNameValueList(&data);
 
@@ -478,7 +482,9 @@ AddAnyPortMapping(struct upnphttp * h, const char * action)
 	struct NameValueParserData data;
 	const char * int_ip, * int_port, * ext_port, * protocol, * desc;
 	const char * r_host;
+	const char * newEnabled;
 	unsigned short iport, eport;
+	unsigned int enable;
 	const char * leaseduration_str;
 	unsigned int leaseduration;
 
@@ -495,6 +501,7 @@ AddAnyPortMapping(struct upnphttp * h, const char * action)
 	/* NewEnabled */
 	desc = GetValueFromNameValueList(&data, "NewPortMappingDescription");
 	leaseduration_str = GetValueFromNameValueList(&data, "NewLeaseDuration");
+	newEnabled = GetValueFromNameValueList(&data, "newEnabled");
 
 	leaseduration = leaseduration_str ? atoi(leaseduration_str) : 0;
 	if(leaseduration == 0)
@@ -509,6 +516,7 @@ AddAnyPortMapping(struct upnphttp * h, const char * action)
 
 	eport = (unsigned short)atoi(ext_port);
 	iport = (unsigned short)atoi(int_port);
+	enable = (unsigned int)atoi(newEnabled);
 #ifndef SUPPORT_REMOTEHOST
 #ifdef UPNP_STRICT
 	if (r_host && (strlen(r_host) > 0) && (0 != strcmp(r_host, "*")))
@@ -559,7 +567,7 @@ AddAnyPortMapping(struct upnphttp * h, const char * action)
 	/* TODO : accept a different external port
 	 * have some smart strategy to choose the port */
 	for(;;) {
-		r = upnp_redirect(r_host, eport, int_ip, iport, protocol, desc, leaseduration);
+		r = upnp_redirect(enable, r_host, eport, int_ip, iport, protocol, desc, leaseduration);
 		if(r==-2 && eport < 65535) {
 			eport++;
 		} else {

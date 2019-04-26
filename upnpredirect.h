@@ -12,6 +12,7 @@
 #include <sys/types.h>
 
 #include "config.h"
+#include "upnpdatalist.h"
 
 #ifdef ENABLE_LEASEFILE
 int reload_from_lease_file(void);
@@ -26,7 +27,7 @@ int reload_from_lease_file(void);
  *          -3 permission check failed
  */
 int
-upnp_redirect(const char * rhost, unsigned short eport,
+upnp_redirect(unsigned int enable, const char * rhost, unsigned short eport,
               const char * iaddr, unsigned short iport,
               const char * protocol, const char * desc,
               unsigned int leaseduration);
