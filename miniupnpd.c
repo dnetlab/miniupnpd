@@ -1220,6 +1220,10 @@ init(int argc, char * * argv, struct runtime_vars * v)
 				strncpy(serialnumber, ary_options[i].value, SERIALNUMBER_MAX_LEN);
 				serialnumber[SERIALNUMBER_MAX_LEN-1] = '\0';
 				break;
+			case UPNPFWVERSION:
+				strncpy(fw_version, ary_options[i].value, FW_VERSION_MAX_LEN);
+				fw_version[FW_VERSION_MAX_LEN-1] = '\0';
+				break;
 			case UPNPMODEL_NUMBER:
 				strncpy(modelnumber, ary_options[i].value, MODELNUMBER_MAX_LEN);
 				modelnumber[MODELNUMBER_MAX_LEN-1] = '\0';

@@ -165,6 +165,8 @@ static const struct XMLElt rootDesc[] =
 	{"/modelURL", ROOTDEV_MODELURL},
 #endif
 	{"/serialNumber", serialnumber},
+	{"/insightMode", "1"},
+	{"/firmwareVersion", fw_version},
 	{"/UDN", uuidvalue_igd},	/* required */
 	/* see if /UPC is needed. */
 #ifdef ENABLE_6FC_SERVICE

@@ -55,6 +55,7 @@ static const struct {
 	{ UPNPPACKET_LOG, "packet_log" },
 	{ UPNPUUID, "uuid"},
 	{ UPNPSERIAL, "serial"},
+	{ UPNPFWVERSION, "firmwareVersion"},
 	{ UPNPMODEL_NUMBER, "model_number"},
 	{ UPNPCLEANTHRESHOLD, "clean_ruleset_threshold"},
 	{ UPNPCLEANINTERVAL, "clean_ruleset_interval"},
@@ -221,7 +222,7 @@ readoptionsfile(const char * fname)
 		for(i=0; i<sizeof(optionids)/sizeof(optionids[0]); i++)
 		{
 			/*printf("%2d %2d %s %s\n", i, optionids[i].id, name,
-			       optionids[i].name); */
+			       optionids[i].name);*/
 
 			if(0 == strcmp(name, optionids[i].name))
 			{

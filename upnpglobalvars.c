@@ -46,6 +46,7 @@ char uuidvalue_igd[] = "uuid:00000000-0000-0000-0000-000000000000";
 char uuidvalue_wan[] = "uuid:00000000-0000-0000-0000-000000000000";
 char uuidvalue_wcd[] = "uuid:00000000-0000-0000-0000-000000000000";
 char serialnumber[SERIALNUMBER_MAX_LEN] = "00000000";
+char fw_version[FW_VERSION_MAX_LEN]="V19.36.11.7";
 
 char modelnumber[MODELNUMBER_MAX_LEN] = "1";
 

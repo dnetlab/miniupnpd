@@ -11,29 +11,29 @@
 
 /* strings used in the root device xml description */
 #define ROOTDEV_FRIENDLYNAME		OS_NAME " router"
-#define ROOTDEV_MANUFACTURER		OS_NAME
-#define ROOTDEV_MANUFACTURERURL		OS_URL
-#define ROOTDEV_MODELNAME			OS_NAME " router"
-#define ROOTDEV_MODELDESCRIPTION	OS_NAME " router"
-#define ROOTDEV_MODELURL			OS_URL
+#define ROOTDEV_MANUFACTURER		"NETGEAR"
+#define ROOTDEV_MANUFACTURERURL		"https://www.netgear.com"
+#define ROOTDEV_MODELNAME			"BR100"
+#define ROOTDEV_MODELDESCRIPTION	"BR100"
+#define ROOTDEV_MODELURL			"https://www.netgear.com"
 
-#define WANDEV_FRIENDLYNAME			"WANDevice"
-#define WANDEV_MANUFACTURER			"MiniUPnP"
-#define WANDEV_MANUFACTURERURL		"http://miniupnp.free.fr/"
-#define WANDEV_MODELNAME			"WAN Device"
-#define WANDEV_MODELDESCRIPTION		"WAN Device"
-#define WANDEV_MODELNUMBER			UPNP_VERSION
-#define WANDEV_MODELURL				"http://miniupnp.free.fr/"
+#define WANDEV_FRIENDLYNAME			"BR100"
+#define WANDEV_MANUFACTURER			"NETGEAR"
+#define WANDEV_MANUFACTURERURL		"https://www.netgear.com"
+#define WANDEV_MODELNAME			"BR100"
+#define WANDEV_MODELDESCRIPTION		"BR100"
+#define WANDEV_MODELNUMBER			"BR100"
+#define WANDEV_MODELURL				"https://www.netgear.com"
 #define WANDEV_UPC					"000000000000"
 /* UPC is 12 digit (barcode) */
 
-#define WANCDEV_FRIENDLYNAME		"WANConnectionDevice"
-#define WANCDEV_MANUFACTURER		WANDEV_MANUFACTURER
-#define WANCDEV_MANUFACTURERURL		WANDEV_MANUFACTURERURL
-#define WANCDEV_MODELNAME			"MiniUPnPd"
-#define WANCDEV_MODELDESCRIPTION	"MiniUPnP daemon"
-#define WANCDEV_MODELNUMBER			UPNP_VERSION
-#define WANCDEV_MODELURL			"http://miniupnp.free.fr/"
+#define WANCDEV_FRIENDLYNAME		"BR100"
+#define WANCDEV_MANUFACTURER		"NETGEAR"
+#define WANCDEV_MANUFACTURERURL		"https://www.netgear.com"
+#define WANCDEV_MODELNAME			"BR100"
+#define WANCDEV_MODELDESCRIPTION	"BR100"
+#define WANCDEV_MODELNUMBER			"BR100"
+#define WANCDEV_MODELURL			"https://www.netgear.com"
 #define WANCDEV_UPC					"000000000000"
 /* UPC is 12 digit (barcode) */
 

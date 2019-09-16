@@ -26,7 +26,7 @@
 #endif
 
 /* server: HTTP header returned in all HTTP responses : */
-#define MINIUPNPD_SERVER_STRING	OS_VERSION " " UPNP_VERSION_STRING " MiniUPnPd/" MINIUPNPD_VERSION
+#define MINIUPNPD_SERVER_STRING	"Netgear_BR100 " OS_VERSION " " UPNP_VERSION_STRING " MiniUPnPd/" MINIUPNPD_VERSION
 
 /*
  states :

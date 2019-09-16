@@ -41,6 +41,7 @@ enum upnpconfigoptions {
 	UPNPPACKET_LOG,			/* "packet_log" */
 	UPNPUUID,				/* uuid */
 	UPNPSERIAL,				/* serial */
+	UPNPFWVERSION,			/* fw_version */
 	UPNPMODEL_NUMBER,		/* model_number */
 	UPNPCLEANTHRESHOLD,		/* clean_ruleset_threshold */
 	UPNPCLEANINTERVAL,		/* clean_ruleset_interval */
