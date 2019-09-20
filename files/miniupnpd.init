@@ -68,7 +68,7 @@ start() {
 	local enabled time_to_live interval
 	
 	local extiface intiface upload download logging
-	local extip port usesysuptime conffile serial_number model_number
+	local extip port usesysuptime conffile serial_number model_number firmwareVersion
 	local uuid notify_interval presentation_url
 	local upnp_lease_file clean_ruleset_threshold clean_ruleset_interval
     local ipv6_listening_ip
@@ -90,7 +90,10 @@ start() {
 	config_get download config download
 	config_get_bool logging config log_output 0
 	config_get conffile config config_file
-	config_get serial_number config serial_number
+	#config_get serial_number config serial_number
+	ser_tmp=$(artmtd -r sn | head -n1)
+	serial_number=${ser_tmp#*:}
+	firmwareVersion=$(cat firmware_version)
 	config_get model_number config model_number
 	config_get uuid config uuid
 	config_get presentation_url config presentation_url
@@ -186,6 +189,9 @@ start() {
 
 		[ -n "${serial_number}" ] && \
 			echo "serial=${serial_number}" >>$tmpconf
+
+		[ -n "${firmwareVersion}" ] && \
+			echo "firmwareVersion=${firmwareVersion}" >>$tmpconf
 
 		[ -n "${model_number}" ] && \
 			echo "model_number=${model_number}" >>$tmpconf
