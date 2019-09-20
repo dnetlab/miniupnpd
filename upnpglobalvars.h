@@ -74,7 +74,7 @@ extern char uuidvalue_igd[];	/* uuid of root device (IGD) */
 extern char uuidvalue_wan[];	/* uuid of WAN Device */
 extern char uuidvalue_wcd[];	/* uuid of WAN Connection Device */
 
-#define SERIALNUMBER_MAX_LEN (13)
+#define SERIALNUMBER_MAX_LEN (14)
 extern char serialnumber[];
 
 #define FW_VERSION_MAX_LEN (50)
