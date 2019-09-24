@@ -184,8 +184,24 @@ start() {
 			uci commit upnpd
 		}
 
-		[ "$uuid" = "nocli" ] || \
-			echo "uuid=$uuid" >>$tmpconf
+		ethmac_base=$(artmtd -r ethmac)
+		ethmac=${ethmac_base##ethmac:}
+		r_mac1=${ethmac##*:}
+		l_mac2=${ethmac%:*}
+
+		la=0x$r_mac1
+		la1=$(printf "%.2x\n" $(($la+2)))
+		lan_mac=$l_mac2:$la1
+		lan_mac_formated=$(echo $lan_mac | sed 's/://g')
+
+		if [ "$uuid" = "nocli" ]
+	   	then
+			echo "uuid is null"
+		else
+			uuid1=${uuid%-*}
+			uuid_formated=$uuid1-$lan_mac_formated
+			echo "uuid=$uuid_formated" >>$tmpconf
+		fi
 
 		[ -n "${serial_number}" ] && \
 			echo "serial=${serial_number}" >>$tmpconf
