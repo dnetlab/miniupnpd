@@ -196,7 +196,8 @@ start() {
 		[ -n "${model_number}" ] && \
 			echo "model_number=${model_number}" >>$tmpconf
 
-		echo "friendly_name=`cat /module_name |tr '[A-Z]' '[a-z]'`" >>$tmpconf
+			#echo "friendly_name=`cat /module_name |tr '[A-Z]' '[a-z]'`" >>$tmpconf
+			echo "friendly_name=`cat /module_name`" >>$tmpconf
 
 	    config_foreach conf_rule_add perm_rule "$tmpconf"
 	fi

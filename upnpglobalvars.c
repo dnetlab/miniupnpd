@@ -48,11 +48,11 @@ char uuidvalue_wcd[] = "uuid:00000000-0000-0000-0000-000000000000";
 char serialnumber[SERIALNUMBER_MAX_LEN] = "00000000";
 char fw_version[FW_VERSION_MAX_LEN]="V19.36.11.7";
 
-char modelnumber[MODELNUMBER_MAX_LEN] = "1";
+char modelnumber[MODELNUMBER_MAX_LEN] = "BR100";
 
 /* presentation url :
  * http://nnn.nnn.nnn.nnn:ppppp/  => max 30 bytes including terminating 0 */
-char presentationurl[PRESENTATIONURL_MAX_LEN];
+char presentationurl[PRESENTATIONURL_MAX_LEN] = "https://www.routerlogin.net";
 
 #ifdef ENABLE_MANUFACTURER_INFO_CONFIGURATION
 /* friendly name for root devices in XML description */

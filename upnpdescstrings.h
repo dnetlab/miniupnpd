@@ -11,7 +11,7 @@
 
 /* strings used in the root device xml description */
 #define ROOTDEV_FRIENDLYNAME		OS_NAME " router"
-#define ROOTDEV_MANUFACTURER		"NETGEAR"
+#define ROOTDEV_MANUFACTURER		"NETGEAR, lnc."
 #define ROOTDEV_MANUFACTURERURL		"https://www.netgear.com"
 #define ROOTDEV_MODELNAME			"BR100"
 #define ROOTDEV_MODELDESCRIPTION	"BR100"

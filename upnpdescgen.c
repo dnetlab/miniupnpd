@@ -168,6 +168,7 @@ static const struct XMLElt rootDesc[] =
 	{"/insightMode", "1"},
 	{"/firmwareVersion", fw_version},
 	{"/UDN", uuidvalue_igd},	/* required */
+	{"/presentationURL", presentationurl},	/* recommended */
 	/* see if /UPC is needed. */
 #ifdef ENABLE_6FC_SERVICE
 #define SERVICES_OFFSET 63
