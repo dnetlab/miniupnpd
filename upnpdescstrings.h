@@ -10,14 +10,14 @@
 #include "config.h"
 
 /* strings used in the root device xml description */
-#define ROOTDEV_FRIENDLYNAME		OS_NAME " router"
+#define ROOTDEV_FRIENDLYNAME		"BR100(Gateway)"
 #define ROOTDEV_MANUFACTURER		"NETGEAR, lnc."
 #define ROOTDEV_MANUFACTURERURL		"https://www.netgear.com"
-#define ROOTDEV_MODELNAME			"BR100"
+#define ROOTDEV_MODELNAME			"BR100 Insight Managed Business Router"
 #define ROOTDEV_MODELDESCRIPTION	"BR100"
-#define ROOTDEV_MODELURL			"https://www.netgear.com"
+#define ROOTDEV_MODELURL			"https://www.netgear.com/support/product/BR100"
 
-#define WANDEV_FRIENDLYNAME			"BR100"
+#define WANDEV_FRIENDLYNAME			"BR100(Gateway)"
 #define WANDEV_MANUFACTURER			"NETGEAR"
 #define WANDEV_MANUFACTURERURL		"https://www.netgear.com"
 #define WANDEV_MODELNAME			"BR100"
@@ -27,7 +27,7 @@
 #define WANDEV_UPC					"000000000000"
 /* UPC is 12 digit (barcode) */
 
-#define WANCDEV_FRIENDLYNAME		"BR100"
+#define WANCDEV_FRIENDLYNAME		"BR100(Gateway)"
 #define WANCDEV_MANUFACTURER		"NETGEAR"
 #define WANCDEV_MANUFACTURERURL		"https://www.netgear.com"
 #define WANCDEV_MODELNAME			"BR100"

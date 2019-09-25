@@ -146,7 +146,7 @@ static const struct XMLElt rootDesc[] =
 	{"/deviceType", DEVICE_TYPE_IGD},
 		/* urn:schemas-upnp-org:device:InternetGatewayDevice:1 or 2 */
 #ifdef ENABLE_MANUFACTURER_INFO_CONFIGURATION
-	{"/friendlyName", friendly_name/*ROOTDEV_FRIENDLYNAME*/},	/* required */
+	{"/friendlyName", /*friendly_name*/ROOTDEV_FRIENDLYNAME},	/* required */
 	{"/manufacturer", manufacturer_name/*ROOTDEV_MANUFACTURER*/},		/* required */
 /* 8 */
 	{"/manufacturerURL", manufacturer_url/*ROOTDEV_MANUFACTURERURL*/},	/* optional */
