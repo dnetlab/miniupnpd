@@ -1636,12 +1636,12 @@ init(int argc, char * * argv, struct runtime_vars * v)
 		strncpy(presentationurl, presurl, PRESENTATIONURL_MAX_LEN);
 		presentationurl[PRESENTATIONURL_MAX_LEN-1] = '\0';
 	}
-	else
-	{
-		snprintf(presentationurl, PRESENTATIONURL_MAX_LEN,
-		         "http://%s/", lan_addrs.lh_first->str);
-		         /*"http://%s:%d/", lan_addrs.lh_first->str, 80);*/
-	}
+//	else
+//	{
+//		snprintf(presentationurl, PRESENTATIONURL_MAX_LEN,
+//		         "http://%s/", lan_addrs.lh_first->str);
+//		         /*"http://%s:%d/", lan_addrs.lh_first->str, 80);*/
+//	}
 
 	/* set signal handler */
 	memset(&sa, 0, sizeof(struct sigaction));
