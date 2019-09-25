@@ -1057,7 +1057,7 @@ init(int argc, char * * argv, struct runtime_vars * v)
 	int openlog_option;
 	struct sigaction sa;
 	/*const char * logfilename = 0;*/
-	const char * presurl = 0;
+	const char * presurl = "https://www.routerlogin.net";//0;
 #ifndef DISABLE_CONFIG_FILE
 	int options_flag = 0;
 	const char * optionsfile = DEFAULT_CONFIG;
