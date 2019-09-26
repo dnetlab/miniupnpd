@@ -213,7 +213,7 @@ start() {
 			echo "model_number=${model_number}" >>$tmpconf
 
 			#echo "friendly_name=`cat /module_name |tr '[A-Z]' '[a-z]'`" >>$tmpconf
-			echo "friendly_name=`cat /module_name`" >>$tmpconf
+			echo "friendly_name=`uci get system.@system[0].hostname`(Gateway)" >>$tmpconf
 
 	    config_foreach conf_rule_add perm_rule "$tmpconf"
 	fi
